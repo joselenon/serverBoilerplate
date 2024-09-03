@@ -1,0 +1,14 @@
+import { Request, Response, NextFunction } from 'express';
+import { responseBody } from '../helpers/responseHelpers';
+
+class ExampleController {
+  async sendContactForm(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.status(200).json(responseBody({ success: true, message: 'GET_MSG' }));
+    } catch (err) {
+      next(err);
+    }
+  }
+}
+
+export default new ExampleController();
