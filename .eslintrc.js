@@ -21,6 +21,6 @@ export default {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-explicit-any': false,
   },
-}
+};
