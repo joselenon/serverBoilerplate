@@ -35,7 +35,7 @@ class AppService {
 
     this.setupEndpoints();
 
-    this.httpServer.listen(URLS.MAIN_URLS.SERVER_PORT, 0.0.0.0, () =>
+    this.httpServer.listen(URLS.MAIN_URLS.SERVER_PORT, '0.0.0.0', () =>
       console.log(`Server started, ${URLS.MAIN_URLS.SERVER_FULL_URL}`),
     );
   }
