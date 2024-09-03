@@ -11,27 +11,27 @@ const ENVIRONMENT = {
 
   DOMAIN: process.env.DOMAIN as string,
 
-  SERVER_SUBDOMAIN_DOMAIN: process.env.SERVER_SUBDOMAIN_DOMAIN,
-  SERVER_PORT: (process.env.SERVER_PORT || 4000) as number,
+  SERVER_URL: process.env.SERVER_URL,
+  SERVER_PORT: (process.env.SERVER_PORT ? Number(process.env.SERVER_PORT) : 3001) as number,
 
-  CLIENT_SUBDOMAIN_DOMAIN: process.env.CLIENT_SUBDOMAIN_DOMAIN,
-  CLIENT_PORT: (process.env.CLIENT_PORT || 3000) as number,
-
-  FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID as string,
-  FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY as string,
-  FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL as string,
+  CLIENT_URL: process.env.CLIENT_URL,
+  CLIENT_PORT: (process.env.CLIENT_PORT ? Number(process.env.CLIENT_PORT) : 3000) as number,
 
   SESSION_SECRET: process.env.SESSION_SECRET as string,
   JWT_SECRET: process.env.JWT_SECRET as string,
+
+  FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID as string,
+  FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, '\n') as string,
+  FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL as string,
 };
 
 const requiredVariables = [
   'MODE',
   'HTTPS',
   'DOMAIN',
-  'SERVER_SUBDOMAIN_DOMAIN',
+  'SERVER_URL',
   'SERVER_PORT',
-  'CLIENT_SUBDOMAIN_DOMAIN',
+  'CLIENT_URL',
   'FIREBASE_PROJECT_ID',
   'FIREBASE_PRIVATE_KEY',
   'FIREBASE_CLIENT_EMAIL',
